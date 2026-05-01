@@ -955,7 +955,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         enabled?: bool|Param, // Default: true
  *         entity_template_prefixes?: list<scalar|Param|null>,
  *         doctrine_orm?: bool|array{ // Enable the Doctrine ORM integration
- *             enabled?: bool|Param, // Default: true
+ *             enabled?: bool|Param, // Default: false
  *         },
  *     },
  *     default_transport?: scalar|Param|null, // Default: "default"
