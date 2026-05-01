@@ -1,0 +1,6 @@
+.git
+.gitignore
+.phpunit.cache
+var/*
+vendor
+compose.override.yaml
