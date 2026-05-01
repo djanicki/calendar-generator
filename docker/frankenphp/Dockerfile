@@ -7,7 +7,7 @@ RUN apt-get update \
 RUN install-php-extensions \
     intl \
     opcache \
-    pdo_sqlite
+    pdo_mysql
 
 COPY --from=composer/composer:2-bin /composer /usr/bin/composer
 
@@ -17,7 +17,7 @@ ENV APP_ENV=prod
 ENV APP_DEBUG=0
 ENV APP_SECRET=change-me-in-production
 ENV DEFAULT_URI=http://localhost
-ENV DATABASE_URL=sqlite:///%kernel.project_dir%/var/data_prod.db
+ENV DATABASE_URL=mysql://app:app@database:3306/app?serverVersion=8.4.0&charset=utf8mb4
 ENV MESSENGER_TRANSPORT_DSN=sync://
 ENV MAILER_DSN=null://null
 ENV SERVER_NAME=:80
