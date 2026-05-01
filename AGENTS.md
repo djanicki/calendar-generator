@@ -11,8 +11,13 @@ Consistency, maintainability, and long-term evolvability are higher priorities t
 ### Backend
 - **PHP** (modern version compatible with the chosen Symfony LTS)
 - **Symfony Framework – LTS version only**
-  - Do not introduce non-LTS Symfony versions
-  - Follow official Symfony best practices
+   - Do not introduce non-LTS Symfony versions
+   - Follow official Symfony best practices
+
+### Database
+- **MySQL** as the primary relational database
+- **doctrine/dbal** for all database interactions
+- **Doctrine ORM must not be used** — only DBAL (queries, connections, schema) is permitted
 
 ### Frontend
 - **Twig** for server-side rendering
