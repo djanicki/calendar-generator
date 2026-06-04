@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Calendar Preview - {{ grid.monthName }} {{ grid.year }}{% endblock %}
+
+{% block body %}
+    <div class="preview-container">
+        <div class="calendar-paper">
+            <div class="calendar-header">
+                <h2>{{ grid.monthName }}</h2>
+                <div class="calendar-year">{{ grid.year }}</div>
+            </div>
+
+            <div class="calendar-grid">
+                {% for header in grid.headers %}
+                    <div class="calendar-grid-header">{{ header }}</div>
+                {% endfor %}
+
+                {% for week in grid.weeks %}
+                    {% for day in week %}
+                        {% set isToday = day.date|date('Y-m-d') == "now"|date('Y-m-d') %}
+                        <div class="calendar-day-cell {% if not day.isCurrentMonth %}other-month{% endif %} {% if isToday %}is-today{% endif %}">
+                            {{ day.day }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="preview-actions">
+            <a href="{{ path('app_home', {month: grid.month, year: grid.year, first_day: grid.startDayOfWeek}) }}" class="btn btn-secondary">
+                <span class="icon">&larr;</span> Back
+            </a>
+            <button type="button" class="btn btn-primary">
+                Download
+            </button>
+        </div>
+    </div>
+{% endblock %}

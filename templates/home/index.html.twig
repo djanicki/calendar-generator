@@ -9,14 +9,14 @@
             <p class="subtitle">A modern, minimalistic tool to generate printable calendars effortlessly.</p>
             
             <div class="cta-container">
-                <form class="generator-form" action="#" method="POST">
+                <form class="generator-form" action="{{ path('app_preview') }}" method="GET">
                     <div class="form-group">
                         <label for="month">Month</label>
                         <select id="month" name="month" class="form-control">
-                            {% set currentMonth = "now"|date("n") %}
+                            {% set selectedMonth = app.request.query.get('month', "now"|date("n")) %}
                             {% set months = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'} %}
                             {% for num, name in months %}
-                                <option value="{{ num }}" {% if num == currentMonth %}selected{% endif %}>{{ name }}</option>
+                                <option value="{{ num }}" {% if num == selectedMonth %}selected{% endif %}>{{ name }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -24,9 +24,10 @@
                     <div class="form-group">
                         <label for="year">Year</label>
                         <select id="year" name="year" class="form-control">
+                            {% set selectedYear = app.request.query.get('year', "now"|date("Y")) %}
                             {% set currentYear = "now"|date("Y") %}
                             {% for year in currentYear..(currentYear + 5) %}
-                                <option value="{{ year }}" {% if year == currentYear %}selected{% endif %}>{{ year }}</option>
+                                <option value="{{ year }}" {% if year == selectedYear %}selected{% endif %}>{{ year }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -34,16 +35,17 @@
                     <div class="form-group">
                         <label>First day of the week</label>
                         <div class="radio-group">
+                            {% set selectedFirstDay = app.request.query.get('first_day', 'monday')|lower %}
                             <label>
-                                <input type="radio" name="first_day" value="monday" checked> Monday
+                                <input type="radio" name="first_day" value="monday" {% if selectedFirstDay == 'monday' %}checked{% endif %}> Monday
                             </label>
                             <label>
-                                <input type="radio" name="first_day" value="sunday"> Sunday
+                                <input type="radio" name="first_day" value="sunday" {% if selectedFirstDay == 'sunday' %}checked{% endif %}> Sunday
                             </label>
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-primary">Generate</button>
+                    <button type="submit" class="btn btn-primary">Generate</button>
                 </form>
             </div>
         </div>

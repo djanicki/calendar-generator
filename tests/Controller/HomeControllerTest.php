@@ -14,6 +14,7 @@ final class HomeControllerTest extends WebTestCase
         $client->request('GET', '/');
 
         self::assertResponseIsSuccessful();
-        self::assertSelectorTextContains('h1', 'Calendar Generator');
+        self::assertSelectorTextContains('h1', 'Create Beautiful Calendars in Seconds.');
+        self::assertSelectorTextContains('.nav-brand', 'Calendar Generator');
     }
 }
