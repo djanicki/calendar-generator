@@ -8,11 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class LicenseController extends AbstractController
+final class TermsController extends AbstractController
 {
-    #[Route(path: '/license', name: 'app_license', methods: ['GET'])]
+    #[Route(path: '/terms', name: 'app_terms', methods: ['GET'])]
     public function __invoke(): Response
     {
-        return $this->render('license/index.html.twig');
+        return $this->render('terms/index.html.twig');
     }
 }
