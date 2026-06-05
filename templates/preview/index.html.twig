@@ -10,7 +10,7 @@
                 <div class="calendar-year">{{ grid.year }}</div>
             </div>
 
-            <div class="calendar-grid">
+            <div class="calendar-grid" style="--week-count: {{ grid.weeks|length }};">
                 {% for header in grid.headers %}
                     <div class="calendar-grid-header">{{ header }}</div>
                 {% endfor %}

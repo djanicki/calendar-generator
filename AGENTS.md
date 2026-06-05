@@ -41,16 +41,33 @@ The project follows **Domain-Driven Design (DDD)** with a strict **Dependency Ru
 
 ## 3. Development Workflow
 
+### Container vs Local Execution
+When Docker or Podman is available, you **must** run all project commands (tests, composer, migrations, console tasks, etc.) inside the running `php` container. If Docker/Podman is not installed, not running, or fails, fall back to running the commands locally on your host.
+
+- **Available software identification**
+  - Check if `docker compose`, `podman compose`, `docker-compose`, `podman-compose` are available, use the available command name instead of `docker compose` in following points
+- **Starting Environment**:
+  - Container: `docker compose up -d`
+- **Testing**:
+  - Container: `docker compose exec php bin/phpunit`
+  - Local: `bin/phpunit`
+- **Composer**:
+  - Container: `docker compose exec php composer <command>`
+  - Local: `composer <command>`
+- **Symfony Console**:
+  - Container: `docker compose exec php bin/console <command>`
+  - Local: `bin/console <command>`
+
 ### Environment
-- Use **Docker Compose** for the full stack (PHP/FrankenPHP + MySQL).
-- `compose up -d` to start the environment.
+- Use **Docker Compose** (or **Podman Compose**) for the full stack (PHP/FrankenPHP + MySQL).
+- `docker compose up -d` to start the environment.
 
 ### Testing
-- Run tests using `bin/phpunit`.
+- Run tests using the container command `docker compose exec php bin/phpunit` when possible. Fall back to local `bin/phpunit` if the container is not available.
 - All new features **must** include unit or integration tests.
 
 ### Database
-- Use **Doctrine Migrations** for schema changes.
+- Use **Doctrine Migrations** for schema changes (e.g. via `docker compose exec php bin/console doctrine:migrations:migrate` or locally `bin/console doctrine:migrations:migrate`).
 
 ### Deployment/Infrastructure
 - Uses **FrankenPHP** as the application server.
