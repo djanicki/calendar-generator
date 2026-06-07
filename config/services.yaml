@@ -13,11 +13,22 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            string $generatedCalendarsDir: '%kernel.project_dir%/%env(GENERATED_CALENDARS_DIR)%'
+            string $fontDirectory: '%kernel.project_dir%/assets/fonts'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/'
 
+    # Domain interface bindings
+    App\Domain\Repository\CalendarRepositoryInterface:
+        class: App\Infrastructure\Repository\DbalCalendarRepository
+
+    App\Domain\Service\CalendarImageRendererInterface:
+        class: App\Infrastructure\Service\GdCalendarImageRenderer
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+

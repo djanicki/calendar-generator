@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Your Calendar is Ready - Calendar Generator{% endblock %}
+
+{% block body %}
+    <div class="download-container">
+        <div class="download-card">
+            <div class="download-icon">✓</div>
+            <h1 class="download-heading">Your calendar is ready</h1>
+            <p class="download-subtext">Your calendar for <strong>{{ calendar.selMonth }}/{{ calendar.selYear }}</strong> has been generated successfully.</p>
+
+            <div class="download-actions">
+                <a href="{{ path('app_download_file', {token: calendar.token}) }}" class="btn btn-primary btn-download" id="download-button">
+                    <span class="download-btn-icon">⬇</span> Download
+                </a>
+            </div>
+
+            <div class="download-footer">
+                <a href="{{ path('app_home') }}" class="btn btn-secondary">Create Another Calendar</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

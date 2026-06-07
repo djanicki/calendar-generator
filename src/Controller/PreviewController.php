@@ -17,7 +17,7 @@ final class PreviewController extends AbstractController
     ) {}
 
     #[Route(path: '/preview', name: 'app_preview', methods: ['GET'])]
-    public function __invoke(Request $request): Response
+    public function preview(Request $request): Response
     {
         $currentMonth = (int) date('n');
         $currentYear = (int) date('Y');
@@ -42,5 +42,30 @@ final class PreviewController extends AbstractController
         return $this->render('preview/index.html.twig', [
             'grid' => $grid,
         ]);
+    }
+
+    #[Route(path: '/preview/generate', name: 'app_preview_generate', methods: ['POST'])]
+    public function generate(Request $request): Response
+    {
+        $currentMonth = (int) date('n');
+        $currentYear = (int) date('Y');
+
+        $month = (int) $request->request->get('month', $currentMonth);
+        $year = (int) $request->request->get('year', $currentYear);
+        $firstDay = strtolower((string) $request->request->get('first_day', 'monday'));
+
+        if ($month < 1 || $month > 12) {
+            $month = $currentMonth;
+        }
+        if ($year < 1) {
+            $year = $currentYear;
+        }
+        if ($firstDay !== 'monday' && $firstDay !== 'sunday') {
+            $firstDay = 'monday';
+        }
+
+        $calendar = $this->generationService->generateAndPersist($year, $month, $firstDay);
+
+        return $this->redirectToRoute('app_download_page', ['token' => $calendar->getToken()]);
     }
 }

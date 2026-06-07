@@ -34,8 +34,8 @@ final class PreviewControllerTest extends WebTestCase
         self::assertStringContainsString('year=2026', $href);
         self::assertStringContainsString('first_day=monday', $href);
 
-        // Assert download button is present
-        $downloadButton = $crawler->filter('.preview-actions button:contains("Download")');
+        // Assert generate button is present
+        $downloadButton = $crawler->filter('.preview-actions button:contains("Generate")');
         self::assertCount(1, $downloadButton);
     }
 

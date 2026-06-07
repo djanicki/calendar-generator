@@ -17,23 +17,27 @@
 
                 {% for week in grid.weeks %}
                     {% for day in week %}
-                        {% set isToday = day.date|date('Y-m-d') == "now"|date('Y-m-d') %}
-                        <div class="calendar-day-cell {% if not day.isCurrentMonth %}other-month{% endif %} {% if isToday %}is-today{% endif %}">
+                        <div class="calendar-day-cell {% if not day.isCurrentMonth %}other-month{% endif %}">
                             {{ day.day }}
                         </div>
                     {% endfor %}
                 {% endfor %}
             </div>
         </div>
-            <p class="terms-notice">By clicking Download, you agree to our <a href="/terms" target="_blank">Terms and Conditions</a>.</p>
+            <p class="terms-notice">By clicking Generate, you agree to our <a href="/terms" target="_blank">Terms and Conditions</a>.</p>
         <div class="preview-actions">
 
             <a href="{{ path('app_home', {month: grid.month, year: grid.year, first_day: grid.startDayOfWeek}) }}" class="btn btn-secondary">
                 <span class="icon">&larr;</span> Back
             </a>
-            <button type="button" class="btn btn-primary">
-                Download
-            </button>
+            <form action="{{ path('app_preview_generate') }}" method="POST">
+                <input type="hidden" name="month" value="{{ grid.month }}">
+                <input type="hidden" name="year" value="{{ grid.year }}">
+                <input type="hidden" name="first_day" value="{{ grid.startDayOfWeek }}">
+                <button type="submit" class="btn btn-primary">
+                    Generate
+                </button>
+            </form>
         </div>
     </div>
 {% endblock %}

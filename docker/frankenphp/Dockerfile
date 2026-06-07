@@ -5,6 +5,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN install-php-extensions \
+    gd \
     intl \
     opcache \
     pdo_mysql
