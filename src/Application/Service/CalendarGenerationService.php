@@ -37,11 +37,11 @@ final class CalendarGenerationService
         return $this->gridGenerator->generate($year, $month, $startDayOfWeek);
     }
 
-    public function generateAndPersist(int $year, int $month, string $startDayOfWeek): Calendar
+    public function generateAndPersist(int $year, int $month, string $startDayOfWeek, string $template = 'modern'): Calendar
     {
         $grid = $this->generateCalendar($year, $month, $startDayOfWeek);
 
-        $filename = $this->imageRenderer->render($grid, $this->generatedCalendarsDir);
+        $filename = $this->imageRenderer->render($grid, $this->generatedCalendarsDir, $template);
 
         $token = Uuid::v4()->toRfc4122();
         $now = new \DateTimeImmutable();

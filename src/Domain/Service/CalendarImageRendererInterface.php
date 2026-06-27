@@ -13,8 +13,9 @@ interface CalendarImageRendererInterface
      *
      * @param CalendarGrid $grid            The calendar grid data to render.
      * @param string       $outputDirectory Absolute path to the output directory.
+     * @param string       $template        The template style to use.
      *
      * @return string The filename (not full path) of the generated image.
      */
-    public function render(CalendarGrid $grid, string $outputDirectory): string;
+    public function render(CalendarGrid $grid, string $outputDirectory, string $template = 'modern'): string;
 }

@@ -96,4 +96,57 @@ final class DownloadControllerTest extends WebTestCase
             unlink($filePath);
         }
     }
+
+    public function testCalendarGenerationAndDownloadFlowClassic(): void
+    {
+        $client = static::createClient();
+        $container = self::getContainer();
+        $repository = $container->get(CalendarRepositoryInterface::class);
+        $generatedCalendarsDir = $container->getParameter('kernel.project_dir') . '/' . $_ENV['GENERATED_CALENDARS_DIR'];
+
+        // 1. Post to generate a calendar with classic template
+        $client->request('POST', '/preview/generate', [
+            'month' => 10,
+            'year' => 2026,
+            'first_day' => 'sunday',
+            'template' => 'classic'
+        ]);
+
+        self::assertResponseRedirects();
+        $client->followRedirect();
+
+        self::assertResponseIsSuccessful();
+        self::assertSelectorTextContains('.download-heading', 'Your calendar is ready');
+        self::assertSelectorTextContains('.download-subtext', '10/2026');
+
+        // Extract token from request URL
+        $url = $client->getRequest()->getUri();
+        $urlParts = explode('/', rtrim($url, '/'));
+        $token = end($urlParts);
+
+        // Fetch calendar from DB to check it was persisted
+        $calendar = $repository->findByToken($token);
+        self::assertNotNull($calendar);
+        self::assertSame(10, $calendar->getSelMonth());
+        self::assertSame(2026, $calendar->getSelYear());
+        self::assertFalse($calendar->isMondayFirst());
+
+        // Verify file was generated on disk
+        $filePath = $generatedCalendarsDir . '/' . $calendar->getGeneratedFile();
+        self::assertFileExists($filePath);
+
+        // 2. Request file download
+        $client->request('GET', sprintf('/download/%s/file', $token));
+        self::assertResponseIsSuccessful();
+        
+        $response = $client->getResponse();
+        self::assertSame('image/png', $response->headers->get('Content-Type'));
+        self::assertStringContainsString('attachment', (string) $response->headers->get('Content-Disposition'));
+        self::assertStringContainsString($calendar->getGeneratedFile(), (string) $response->headers->get('Content-Disposition'));
+
+        // Cleanup generated file
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
+    }
 }

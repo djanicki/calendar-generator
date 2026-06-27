@@ -28,13 +28,14 @@ final class GdCalendarImageRenderer implements CalendarImageRendererInterface
     private const float FONT_SIZE_MONTH = 72.0;
     private const float FONT_SIZE_YEAR = 44.0;
     private const float FONT_SIZE_DAY_HEADER = 24.0;
-    private const float FONT_SIZE_DAY = 32.0;
+    private const float FONT_SIZE_DAY_CLASSIC = 120.0;
+    private const float FONT_SIZE_DAY_MODERN = 90.0;
 
     public function __construct(
         private readonly string $fontDirectory
     ) {}
 
-    public function render(CalendarGrid $grid, string $outputDirectory): string
+    public function render(CalendarGrid $grid, string $outputDirectory, string $template = 'modern'): string
     {
         if (!is_dir($outputDirectory)) {
             mkdir($outputDirectory, 0o755, true);
@@ -60,10 +61,11 @@ final class GdCalendarImageRenderer implements CalendarImageRendererInterface
         imagefill($image, 0, 0, $bgColor);
 
         // Font paths
-        $fontBold = $this->fontDirectory . '/Inter-Bold.ttf';
-        $fontRegular = $this->fontDirectory . '/Inter-Regular.ttf';
-        $fontMedium = $this->fontDirectory . '/Inter-Medium.ttf';
-        $fontSemiBold = $this->fontDirectory . '/Inter-SemiBold.ttf';
+        $fontPrefix = ($template === 'classic') ? 'Lora' : 'Inter';
+        $fontBold = $this->fontDirectory . '/' . $fontPrefix . '-Bold.ttf';
+        $fontRegular = $this->fontDirectory . '/' . $fontPrefix . '-Regular.ttf';
+        $fontMedium = $this->fontDirectory . '/' . $fontPrefix . '-Medium.ttf';
+        $fontSemiBold = $this->fontDirectory . '/' . $fontPrefix . '-SemiBold.ttf';
 
         // === Header Section ===
         $headerY = self::PADDING_TOP + 80;
@@ -104,8 +106,6 @@ final class GdCalendarImageRenderer implements CalendarImageRendererInterface
 
         // Header separator line
         $headerSepY = $gridStartY + 30;
-        imagesetthickness($image, 2);
-        imageline($image, self::PADDING_X, $headerSepY, self::IMAGE_WIDTH - self::PADDING_X, $headerSepY, $borderColor);
 
         // === Day Grid ===
         $weeks = $grid->getWeeks();
@@ -114,19 +114,51 @@ final class GdCalendarImageRenderer implements CalendarImageRendererInterface
         $availableHeight = $gridBottomY - $headerSepY - 20;
         $rowHeight = $availableHeight / $weekCount;
 
+        if ($template === 'classic') {
+            imagesetthickness($image, 3);
+            $gridTopY = $gridStartY - 45;
+            $gridBottomRealY = (int) ($headerSepY + ($weekCount * $rowHeight));
+
+            // Draw vertical border lines
+            for ($i = 0; $i <= 7; $i++) {
+                $x = (int) (self::PADDING_X + $i * $colWidth);
+                imageline($image, $x, $gridTopY, $x, $gridBottomRealY, $textColor);
+            }
+
+            // Draw horizontal border lines
+            // 1. Line above headers
+            imageline($image, self::PADDING_X, $gridTopY, self::IMAGE_WIDTH - self::PADDING_X, $gridTopY, $textColor);
+            // 2. Line below headers
+            imageline($image, self::PADDING_X, $headerSepY, self::IMAGE_WIDTH - self::PADDING_X, $headerSepY, $textColor);
+            // 3. Lines below each week
+            for ($j = 1; $j <= $weekCount; $j++) {
+                $y = (int) ($headerSepY + $j * $rowHeight);
+                imageline($image, self::PADDING_X, $y, self::IMAGE_WIDTH - self::PADDING_X, $y, $textColor);
+            }
+        } else {
+            // Modern header separator line
+            imagesetthickness($image, 2);
+            imageline($image, self::PADDING_X, $headerSepY, self::IMAGE_WIDTH - self::PADDING_X, $headerSepY, $borderColor);
+        }
+
         foreach ($weeks as $weekIndex => $week) {
             foreach ($week as $dayIndex => $day) {
                 $dayNumber = (string) $day->getDay();
                 $color = $day->isCurrentMonth() ? $textColor : $otherMonthColor;
                 $font = $day->isCurrentMonth() ? $fontMedium : $fontRegular;
 
-                $box = imagettfbbox(self::FONT_SIZE_DAY, 0, $font, $dayNumber);
+                $dayFontSize = ($template === 'classic') ? self::FONT_SIZE_DAY_CLASSIC : self::FONT_SIZE_DAY_MODERN;
+                $box = imagettfbbox($dayFontSize, 0, $font, $dayNumber);
                 if ($box !== false) {
                     $textWidth = $box[2] - $box[0];
                     $textHeight = $box[1] - $box[7];
                     $x = (int) (self::PADDING_X + ($dayIndex * $colWidth) + ($colWidth - $textWidth) / 2);
-                    $y = (int) ($headerSepY + 20 + ($weekIndex * $rowHeight) + ($rowHeight + $textHeight) / 2);
-                    imagettftext($image, self::FONT_SIZE_DAY, 0, $x, $y, $color, $font, $dayNumber);
+                    if ($template === 'classic') {
+                        $y = (int) ($headerSepY + ($weekIndex * $rowHeight) + ($rowHeight + $textHeight) / 2);
+                    } else {
+                        $y = (int) ($headerSepY + 20 + ($weekIndex * $rowHeight) + ($rowHeight + $textHeight) / 2);
+                    }
+                    imagettftext($image, $dayFontSize, 0, $x, $y, $color, $font, $dayNumber);
                 }
             }
         }

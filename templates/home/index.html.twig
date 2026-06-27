@@ -33,6 +33,15 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="template">Template</label>
+                        <select id="template" name="template" class="form-control">
+                            {% set selectedTemplate = app.request.query.get('template', 'modern') %}
+                            <option value="modern" {% if selectedTemplate == 'modern' %}selected{% endif %}>Modern</option>
+                            <option value="classic" {% if selectedTemplate == 'classic' %}selected{% endif %}>Classic</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label>First day of the week</label>
                         <div class="radio-group">
                             {% set selectedFirstDay = app.request.query.get('first_day', 'monday')|lower %}

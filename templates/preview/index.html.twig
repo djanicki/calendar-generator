@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="preview-container">
-        <div class="calendar-paper">
+        <div class="calendar-paper template-{{ template }}">
             <div class="calendar-header">
                 <h2>{{ grid.monthName }}</h2>
                 <div class="calendar-year">{{ grid.year }}</div>
@@ -27,13 +27,14 @@
             <p class="terms-notice">By clicking Generate, you agree to our <a href="/terms" target="_blank">Terms and Conditions</a>.</p>
         <div class="preview-actions">
 
-            <a href="{{ path('app_home', {month: grid.month, year: grid.year, first_day: grid.startDayOfWeek}) }}" class="btn btn-secondary">
+            <a href="{{ path('app_home', {month: grid.month, year: grid.year, first_day: grid.startDayOfWeek, template: template}) }}" class="btn btn-secondary">
                 <span class="icon">&larr;</span> Back
             </a>
             <form action="{{ path('app_preview_generate') }}" method="POST">
                 <input type="hidden" name="month" value="{{ grid.month }}">
                 <input type="hidden" name="year" value="{{ grid.year }}">
                 <input type="hidden" name="first_day" value="{{ grid.startDayOfWeek }}">
+                <input type="hidden" name="template" value="{{ template }}">
                 <button type="submit" class="btn btn-primary">
                     Generate
                 </button>

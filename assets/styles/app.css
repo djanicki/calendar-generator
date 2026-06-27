@@ -391,7 +391,7 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 3.2vw, 3rem);
     font-weight: 500;
     color: #0f172a;
     border-radius: 8px;
@@ -716,4 +716,34 @@ a:hover {
     .download-heading {
         font-size: 1.5rem;
     }
+}
+
+/* Classic Template Styles */
+.calendar-paper.template-classic {
+    font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
+}
+
+.calendar-paper.template-classic .calendar-grid {
+    gap: 0;
+    border-top: 2px solid #0f172a;
+    border-left: 2px solid #0f172a;
+}
+
+.calendar-paper.template-classic .calendar-grid-header {
+    border-bottom: 2px solid #0f172a;
+    border-right: 2px solid #0f172a;
+    padding: 10px 0;
+    font-family: inherit;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-paper.template-classic .calendar-day-cell {
+    border-bottom: 2px solid #0f172a;
+    border-right: 2px solid #0f172a;
+    border-radius: 0;
+    font-family: inherit;
+    font-size: clamp(1.2rem, 4.2vw, 4rem);
 }

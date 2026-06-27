@@ -25,6 +25,7 @@ final class PreviewController extends AbstractController
         $month = $request->query->getInt('month', $currentMonth);
         $year = $request->query->getInt('year', $currentYear);
         $firstDay = strtolower($request->query->get('first_day', 'monday'));
+        $template = strtolower($request->query->get('template', 'modern'));
 
         // Fallback to valid defaults on invalid query params
         if ($month < 1 || $month > 12) {
@@ -36,11 +37,15 @@ final class PreviewController extends AbstractController
         if ($firstDay !== 'monday' && $firstDay !== 'sunday') {
             $firstDay = 'monday';
         }
+        if ($template !== 'modern' && $template !== 'classic') {
+            $template = 'modern';
+        }
 
         $grid = $this->generationService->generateCalendar($year, $month, $firstDay);
 
         return $this->render('preview/index.html.twig', [
             'grid' => $grid,
+            'template' => $template,
         ]);
     }
 
@@ -53,6 +58,7 @@ final class PreviewController extends AbstractController
         $month = (int) $request->request->get('month', $currentMonth);
         $year = (int) $request->request->get('year', $currentYear);
         $firstDay = strtolower((string) $request->request->get('first_day', 'monday'));
+        $template = strtolower((string) $request->request->get('template', 'modern'));
 
         if ($month < 1 || $month > 12) {
             $month = $currentMonth;
@@ -63,8 +69,11 @@ final class PreviewController extends AbstractController
         if ($firstDay !== 'monday' && $firstDay !== 'sunday') {
             $firstDay = 'monday';
         }
+        if ($template !== 'modern' && $template !== 'classic') {
+            $template = 'modern';
+        }
 
-        $calendar = $this->generationService->generateAndPersist($year, $month, $firstDay);
+        $calendar = $this->generationService->generateAndPersist($year, $month, $firstDay, $template);
 
         return $this->redirectToRoute('app_download_page', ['token' => $calendar->getToken()]);
     }

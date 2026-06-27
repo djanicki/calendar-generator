@@ -19,6 +19,9 @@ final class PreviewControllerTest extends WebTestCase
         self::assertSelectorTextContains('.calendar-header h2', 'June');
         self::assertSelectorTextContains('.calendar-header .calendar-year', '2026');
 
+        // Assert template-modern class is applied on calendar-paper
+        self::assertSelectorExists('.calendar-paper.template-modern');
+
         // Assert all 7 weekdays are printed
         $headers = $crawler->filter('.calendar-grid-header');
         self::assertCount(7, $headers);
@@ -33,10 +36,38 @@ final class PreviewControllerTest extends WebTestCase
         self::assertStringContainsString('month=6', $href);
         self::assertStringContainsString('year=2026', $href);
         self::assertStringContainsString('first_day=monday', $href);
+        self::assertStringContainsString('template=modern', $href);
+
+        // Assert hidden template input is modern
+        self::assertSelectorExists('form input[name="template"][value="modern"]');
 
         // Assert generate button is present
         $downloadButton = $crawler->filter('.preview-actions button:contains("Generate")');
         self::assertCount(1, $downloadButton);
+    }
+
+    public function testPreviewPageLoadsClassicTemplate(): void
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/preview?month=6&year=2026&first_day=monday&template=classic');
+
+        self::assertResponseIsSuccessful();
+
+        // Assert template-classic class is applied on calendar-paper
+        self::assertSelectorExists('.calendar-paper.template-classic');
+
+        // Assert back button is present and links back to home with the parameters, including template
+        $backLink = $crawler->selectLink('Back');
+        self::assertCount(1, $backLink);
+        
+        $href = $backLink->attr('href');
+        self::assertStringContainsString('month=6', $href);
+        self::assertStringContainsString('year=2026', $href);
+        self::assertStringContainsString('first_day=monday', $href);
+        self::assertStringContainsString('template=classic', $href);
+
+        // Assert hidden template input is classic
+        self::assertSelectorExists('form input[name="template"][value="classic"]');
     }
 
     public function testPreviewPageHandlesInvalidInputsGracefully(): void
@@ -44,15 +75,16 @@ final class PreviewControllerTest extends WebTestCase
         $client = static::createClient();
         
         // request with invalid parameters
-        $client->request('GET', '/preview?month=99&year=-5&first_day=invalid');
+        $client->request('GET', '/preview?month=99&year=-5&first_day=invalid&template=invalid');
 
         self::assertResponseIsSuccessful();
         
-        // Should fallback to valid defaults (e.g. current year and month, monday)
+        // Should fallback to valid defaults (e.g. current year and month, monday, template modern)
         $currentMonthName = date('F');
         $currentYear = date('Y');
         
         self::assertSelectorTextContains('.calendar-header h2', $currentMonthName);
         self::assertSelectorTextContains('.calendar-header .calendar-year', $currentYear);
+        self::assertSelectorExists('.calendar-paper.template-modern');
     }
 }
