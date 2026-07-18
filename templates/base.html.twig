@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Calendar Generator{% endblock %}</title>
+        <title>{% block title %}{{ 'app.title'|trans }}{% endblock %}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -11,11 +11,11 @@
         
         {% block stylesheets %}
         {% endblock %}
-
+ 
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
-
+ 
         {% set frankenphpHotReload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
         {% if frankenphpHotReload %}
         <meta name="frankenphp-hot-reload:url" content="{{ frankenphpHotReload }}">
@@ -27,7 +27,7 @@
         <nav class="navbar">
             <div class="nav-container">
                 <a href="{{ path('app_home') }}" class="nav-brand">
-                    <span class="logo-icon">📅</span> Calendar Generator
+                    <span class="logo-icon">📅</span> {{ 'app.title'|trans }}
                 </a>
                 
                 <button class="mobile-menu-btn" aria-label="Toggle Navigation">
@@ -37,9 +37,9 @@
                 </button>
                 
                 <ul class="nav-links">
-                    <li><a href="{{ path('app_home') }}" class="{{ app.current_route == 'app_home' ? 'active' : '' }}">Home</a></li>
-                    <li><a href="{{ path('app_about') }}" class="{{ app.current_route == 'app_about' ? 'active' : '' }}">About</a></li>
-                    <li><a href="{{ path('app_terms') }}" class="{{ app.current_route == 'app_terms' ? 'active' : '' }}">Terms and Conditions</a></li>
+                    <li><a href="{{ path('app_home') }}" class="{{ app.current_route == 'app_home' ? 'active' : '' }}">{{ 'menu.home'|trans }}</a></li>
+                    <li><a href="{{ path('app_about') }}" class="{{ app.current_route == 'app_about' ? 'active' : '' }}">{{ 'menu.about'|trans }}</a></li>
+                    <li><a href="{{ path('app_terms') }}" class="{{ app.current_route == 'app_terms' ? 'active' : '' }}">{{ 'menu.terms_and_conditions'|trans }}</a></li>
                 </ul>
             </div>
         </nav>

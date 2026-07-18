@@ -6,6 +6,7 @@ namespace App\Infrastructure\Service;
 
 use App\Domain\Model\CalendarGrid;
 use App\Domain\Service\CalendarImageRendererInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class GdCalendarImageRenderer implements CalendarImageRendererInterface
 {
@@ -32,7 +33,8 @@ final class GdCalendarImageRenderer implements CalendarImageRendererInterface
     private const float FONT_SIZE_DAY_MODERN = 90.0;
 
     public function __construct(
-        private readonly string $fontDirectory
+        private readonly string $fontDirectory,
+        private readonly ?TranslatorInterface $translator = null
     ) {}
 
     public function render(CalendarGrid $grid, string $outputDirectory, string $template = 'modern'): string
@@ -72,7 +74,11 @@ final class GdCalendarImageRenderer implements CalendarImageRendererInterface
         $contentWidth = self::IMAGE_WIDTH - (2 * self::PADDING_X);
 
         // Month name (left-aligned, bold, uppercase)
-        $monthName = strtoupper($grid->getMonthName());
+        $monthNameRaw = $grid->getMonthName();
+        $translatedMonth = $this->translator !== null
+            ? $this->translator->trans('months.' . strtolower($monthNameRaw))
+            : $monthNameRaw;
+        $monthName = mb_strtoupper($translatedMonth, 'UTF-8');
         imagettftext($image, self::FONT_SIZE_MONTH, 0, self::PADDING_X, $headerY, $textColor, $fontBold, $monthName);
 
         // Year (right-aligned)
@@ -95,7 +101,10 @@ final class GdCalendarImageRenderer implements CalendarImageRendererInterface
 
         $headers = $grid->getHeaders();
         foreach ($headers as $i => $header) {
-            $headerUpper = strtoupper($header);
+            $translatedHeader = $this->translator !== null
+                ? $this->translator->trans('days.' . strtolower($header))
+                : $header;
+            $headerUpper = mb_strtoupper($translatedHeader, 'UTF-8');
             $box = imagettfbbox(self::FONT_SIZE_DAY_HEADER, 0, $fontSemiBold, $headerUpper);
             if ($box !== false) {
                 $textWidth = $box[2] - $box[0];
