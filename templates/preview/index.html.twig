@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Calendar Preview - {{ grid.monthName }} {{ grid.year }}{% endblock %}
+{% block title %}{{ 'preview.page_title'|trans }} - {{ ('months.' ~ grid.monthName|lower)|trans }} {{ grid.year }}{% endblock %}
 
 {% block body %}
     <div class="preview-container">
         <div class="calendar-paper template-{{ template }}">
             <div class="calendar-header">
-                <h2>{{ grid.monthName }}</h2>
+                <h2>{{ ('months.' ~ grid.monthName|lower)|trans }}</h2>
                 <div class="calendar-year">{{ grid.year }}</div>
             </div>
 
             <div class="calendar-grid" style="--week-count: {{ grid.weeks|length }};">
                 {% for header in grid.headers %}
-                    <div class="calendar-grid-header">{{ header }}</div>
+                    <div class="calendar-grid-header">{{ ('days.' ~ header|lower)|trans }}</div>
                 {% endfor %}
 
                 {% for week in grid.weeks %}
@@ -24,11 +24,11 @@
                 {% endfor %}
             </div>
         </div>
-            <p class="terms-notice">By clicking Generate, you agree to our <a href="/terms" target="_blank">Terms and Conditions</a>.</p>
+            <p class="terms-notice">{{ 'preview.terms_notice'|trans({'%link_start%': '<a href="/terms" target="_blank">', '%link_end%': '</a>'})|raw }}</p>
         <div class="preview-actions">
 
             <a href="{{ path('app_home', {month: grid.month, year: grid.year, first_day: grid.startDayOfWeek, template: template}) }}" class="btn btn-secondary">
-                <span class="icon">&larr;</span> Back
+                <span class="icon">&larr;</span> {{ 'preview.btn_back'|trans }}
             </a>
             <form action="{{ path('app_preview_generate') }}" method="POST">
                 <input type="hidden" name="month" value="{{ grid.month }}">
@@ -36,7 +36,7 @@
                 <input type="hidden" name="first_day" value="{{ grid.startDayOfWeek }}">
                 <input type="hidden" name="template" value="{{ template }}">
                 <button type="submit" class="btn btn-primary">
-                    Generate
+                    {{ 'preview.btn_generate'|trans }}
                 </button>
             </form>
         </div>

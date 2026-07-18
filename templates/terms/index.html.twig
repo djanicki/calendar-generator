@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Terms and Conditions - Calendar Generator{% endblock %}
+{% block title %}{{ 'terms.page_title'|trans }} - {{ 'app.title'|trans }}{% endblock %}
 
 {% block body %}
 <div class="terms-page-layout">
@@ -8,26 +8,26 @@
         <!-- Sidebar Navigation -->
         <aside class="terms-sidebar">
             <div class="sticky-toc">
-                <h3>Table of Contents</h3>
+                <h3>{{ 'terms.sidebar_title'|trans }}</h3>
                 <nav class="toc-nav">
                     <ul>
-                        <li><a href="#acceptance" class="toc-link">1. Acceptance of Terms</a></li>
-                        <li><a href="#description" class="toc-link">2. Description of the Service</a></li>
-                        <li><a href="#warranty" class="toc-link">3. No Warranty</a></li>
-                        <li><a href="#liability" class="toc-link">4. Limitation of Liability</a></li>
-                        <li><a href="#responsibility" class="toc-link">5. User Responsibility</a></li>
-                        <li><a href="#property" class="toc-link">6. Intellectual Property</a></li>
-                        <li><a href="#use" class="toc-link">7. Acceptable Use</a></li>
-                        <li><a href="#third-party" class="toc-link">8. Third-Party Services</a></li>
-                        <li><a href="#privacy" class="toc-link">9. Privacy</a></li>
-                        <li><a href="#indemnification" class="toc-link">10. Indemnification</a></li>
-                        <li><a href="#availability" class="toc-link">11. Availability and Changes</a></li>
-                        <li><a href="#advice" class="toc-link">12. No Professional Advice</a></li>
-                        <li><a href="#governing" class="toc-link">13. Governing Law</a></li>
-                        <li><a href="#severability" class="toc-link">14. Severability</a></li>
-                        <li><a href="#agreement" class="toc-link">15. Entire Agreement</a></li>
-                        <li><a href="#contact" class="toc-link">16. Contact</a></li>
-                        <li><a href="#summary" class="toc-link summary-toc-link">Summary</a></li>
+                        <li><a href="#acceptance" class="toc-link">{{ 'terms.toc.acceptance'|trans }}</a></li>
+                        <li><a href="#description" class="toc-link">{{ 'terms.toc.description'|trans }}</a></li>
+                        <li><a href="#warranty" class="toc-link">{{ 'terms.toc.warranty'|trans }}</a></li>
+                        <li><a href="#liability" class="toc-link">{{ 'terms.toc.liability'|trans }}</a></li>
+                        <li><a href="#responsibility" class="toc-link">{{ 'terms.toc.responsibility'|trans }}</a></li>
+                        <li><a href="#property" class="toc-link">{{ 'terms.toc.property'|trans }}</a></li>
+                        <li><a href="#use" class="toc-link">{{ 'terms.toc.use'|trans }}</a></li>
+                        <li><a href="#third-party" class="toc-link">{{ 'terms.toc.third_party'|trans }}</a></li>
+                        <li><a href="#privacy" class="toc-link">{{ 'terms.toc.privacy'|trans }}</a></li>
+                        <li><a href="#indemnification" class="toc-link">{{ 'terms.toc.indemnification'|trans }}</a></li>
+                        <li><a href="#availability" class="toc-link">{{ 'terms.toc.availability'|trans }}</a></li>
+                        <li><a href="#advice" class="toc-link">{{ 'terms.toc.advice'|trans }}</a></li>
+                        <li><a href="#governing" class="toc-link">{{ 'terms.toc.governing'|trans }}</a></li>
+                        <li><a href="#severability" class="toc-link">{{ 'terms.toc.severability'|trans }}</a></li>
+                        <li><a href="#agreement" class="toc-link">{{ 'terms.toc.agreement'|trans }}</a></li>
+                        <li><a href="#contact" class="toc-link">{{ 'terms.toc.contact'|trans }}</a></li>
+                        <li><a href="#summary" class="toc-link summary-toc-link">{{ 'terms.toc.summary'|trans }}</a></li>
                     </ul>
                 </nav>
             </div>
@@ -36,151 +36,151 @@
         <!-- Terms Content -->
         <article class="terms-content">
             <header class="terms-header">
-                <h1>Terms and Conditions</h1>
-                <p class="last-updated">Last Updated: June 5, 2026</p>
+                <h1>{{ 'terms.page_title'|trans }}</h1>
+                <p class="last-updated">{{ 'terms.last_updated'|trans }}</p>
             </header>
 
             <section id="acceptance" class="terms-section">
-                <h2>1. Acceptance of Terms</h2>
-                <p>By accessing or using this online printable calendar generator ("Service"), you agree to be bound by these Terms and Conditions. If you do not agree to these Terms, do not use the Service.</p>
+                <h2>{{ 'terms.sections.acceptance.title'|trans }}</h2>
+                <p>{{ 'terms.sections.acceptance.content'|trans }}</p>
             </section>
 
             <section id="description" class="terms-section">
-                <h2>2. Description of the Service</h2>
-                <p>The Service provides tools for generating printable calendar documents and related content. The Service is provided free of charge and may be modified, suspended, or discontinued at any time without notice.</p>
+                <h2>{{ 'terms.sections.description.title'|trans }}</h2>
+                <p>{{ 'terms.sections.description.content'|trans }}</p>
             </section>
 
             <section id="warranty" class="terms-section">
-                <h2>3. No Warranty</h2>
+                <h2>{{ 'terms.sections.warranty.title'|trans }}</h2>
                 <div class="disclaimer-text">
-                    <p>THE SERVICE IS PROVIDED "AS IS", "AS AVAILABLE", AND WITH ALL FAULTS.</p>
-                    <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE AUTHOR, OWNER, OPERATOR, AND CONTRIBUTORS DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
+                    <p>{{ 'terms.sections.warranty.disclaimer1'|trans }}</p>
+                    <p>{{ 'terms.sections.warranty.disclaimer2'|trans }}</p>
                     <ul>
-                        <li>MERCHANTABILITY;</li>
-                        <li>FITNESS FOR A PARTICULAR PURPOSE;</li>
-                        <li>NON-INFRINGEMENT;</li>
-                        <li>ACCURACY, COMPLETENESS, OR RELIABILITY OF OUTPUT;</li>
-                        <li>AVAILABILITY, SECURITY, OR ERROR-FREE OPERATION.</li>
+                        <li>{{ 'terms.sections.warranty.list1_item1'|trans }}</li>
+                        <li>{{ 'terms.sections.warranty.list1_item2'|trans }}</li>
+                        <li>{{ 'terms.sections.warranty.list1_item3'|trans }}</li>
+                        <li>{{ 'terms.sections.warranty.list1_item4'|trans }}</li>
+                        <li>{{ 'terms.sections.warranty.list1_item5'|trans }}</li>
                     </ul>
-                    <p>The Author does not warrant that:</p>
+                    <p>{{ 'terms.sections.warranty.disclaimer3'|trans }}</p>
                     <ul>
-                        <li>The Service will meet your requirements;</li>
-                        <li>The Service will be uninterrupted or error-free;</li>
-                        <li>Generated calendars will be accurate, complete, or suitable for any purpose;</li>
-                        <li>Any defects will be corrected.</li>
+                        <li>{{ 'terms.sections.warranty.list2_item1'|trans }}</li>
+                        <li>{{ 'terms.sections.warranty.list2_item2'|trans }}</li>
+                        <li>{{ 'terms.sections.warranty.list2_item3'|trans }}</li>
+                        <li>{{ 'terms.sections.warranty.list2_item4'|trans }}</li>
                     </ul>
                 </div>
-                <p>Users are solely responsible for verifying all generated content before use, publication, printing, distribution, or reliance upon it.</p>
+                <p>{{ 'terms.sections.warranty.content'|trans }}</p>
             </section>
 
             <section id="liability" class="terms-section">
-                <h2>4. Limitation of Liability</h2>
+                <h2>{{ 'terms.sections.liability.title'|trans }}</h2>
                 <div class="disclaimer-text">
-                    <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE AUTHOR, OWNER, OPERATOR, CONTRIBUTORS, AFFILIATES, AND LICENSORS SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATED TO:</p>
+                    <p>{{ 'terms.sections.liability.disclaimer1'|trans }}</p>
                     <ul>
-                        <li>Use of or inability to use the Service;</li>
-                        <li>Errors, omissions, inaccuracies, or defects in generated calendars;</li>
-                        <li>Loss of data;</li>
-                        <li>Business interruption;</li>
-                        <li>Loss of profits, revenue, goodwill, or opportunities;</li>
-                        <li>Decisions made based on generated content.</li>
+                        <li>{{ 'terms.sections.liability.list_item1'|trans }}</li>
+                        <li>{{ 'terms.sections.liability.list_item2'|trans }}</li>
+                        <li>{{ 'terms.sections.liability.list_item3'|trans }}</li>
+                        <li>{{ 'terms.sections.liability.list_item4'|trans }}</li>
+                        <li>{{ 'terms.sections.liability.list_item5'|trans }}</li>
+                        <li>{{ 'terms.sections.liability.list_item6'|trans }}</li>
                     </ul>
                 </div>
-                <p>This limitation applies regardless of the legal theory asserted and even if the Author has been advised of the possibility of such damages.</p>
+                <p>{{ 'terms.sections.liability.content'|trans }}</p>
             </section>
 
             <section id="responsibility" class="terms-section">
-                <h2>5. User Responsibility</h2>
-                <p>You are solely responsible for:</p>
+                <h2>{{ 'terms.sections.responsibility.title'|trans }}</h2>
+                <p>{{ 'terms.sections.responsibility.content1'|trans }}</p>
                 <ul>
-                    <li>Reviewing and validating generated calendars and content;</li>
-                    <li>Ensuring compliance with applicable laws and regulations;</li>
-                    <li>Maintaining backup copies of any data you consider important;</li>
-                    <li>Any use, distribution, publication, or printing of generated output.</li>
+                    <li>{{ 'terms.sections.responsibility.list_item1'|trans }}</li>
+                    <li>{{ 'terms.sections.responsibility.list_item2'|trans }}</li>
+                    <li>{{ 'terms.sections.responsibility.list_item3'|trans }}</li>
+                    <li>{{ 'terms.sections.responsibility.list_item4'|trans }}</li>
                 </ul>
             </section>
 
             <section id="property" class="terms-section">
-                <h2>6. Intellectual Property</h2>
-                <p>Unless otherwise stated, all rights, title, and interest in the Service, including its software, design, text, graphics, and functionality, remain the property of the Author.</p>
-                <p>Generated calendar output may be used, printed, copied, and distributed by users for personal or commercial purposes unless otherwise indicated by the Service.</p>
-                <p>Nothing in these Terms transfers ownership of the Service itself.</p>
+                <h2>{{ 'terms.sections.property.title'|trans }}</h2>
+                <p>{{ 'terms.sections.property.content1'|trans }}</p>
+                <p>{{ 'terms.sections.property.content2'|trans }}</p>
+                <p>{{ 'terms.sections.property.content3'|trans }}</p>
             </section>
 
             <section id="use" class="terms-section">
-                <h2>7. Acceptable Use</h2>
-                <p>You agree not to:</p>
+                <h2>{{ 'terms.sections.use.title'|trans }}</h2>
+                <p>{{ 'terms.sections.use.content1'|trans }}</p>
                 <ul>
-                    <li>Use the Service for unlawful purposes;</li>
-                    <li>Attempt to interfere with or disrupt the Service;</li>
-                    <li>Reverse engineer, decompile, or attempt to extract source code where prohibited by law;</li>
-                    <li>Use automated means to abuse, overload, or damage the Service.</li>
+                    <li>{{ 'terms.sections.use.list_item1'|trans }}</li>
+                    <li>{{ 'terms.sections.use.list_item2'|trans }}</li>
+                    <li>{{ 'terms.sections.use.list_item3'|trans }}</li>
+                    <li>{{ 'terms.sections.use.list_item4'|trans }}</li>
                 </ul>
             </section>
 
             <section id="third-party" class="terms-section">
-                <h2>8. Third-Party Services</h2>
-                <p>The Service may rely on third-party providers, hosting services, APIs, libraries, or software components.</p>
-                <p>The Author is not responsible for the availability, performance, content, security, or policies of third-party services.</p>
+                <h2>{{ 'terms.sections.third_party.title'|trans }}</h2>
+                <p>{{ 'terms.sections.third_party.content1'|trans }}</p>
+                <p>{{ 'terms.sections.third_party.content2'|trans }}</p>
             </section>
 
             <section id="privacy" class="terms-section">
-                <h2>9. Privacy</h2>
-                <p>The Author may collect and process information as described in a separate Privacy Policy, if applicable.</p>
-                <p>Users should not submit confidential, sensitive, or legally protected information through the Service unless explicitly requested and protected by appropriate safeguards.</p>
+                <h2>{{ 'terms.sections.privacy.title'|trans }}</h2>
+                <p>{{ 'terms.sections.privacy.content1'|trans }}</p>
+                <p>{{ 'terms.sections.privacy.content2'|trans }}</p>
             </section>
 
             <section id="indemnification" class="terms-section">
-                <h2>10. Indemnification</h2>
-                <p>You agree to indemnify and hold harmless the Author, owner, operator, contributors, affiliates, and licensors from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising from:</p>
+                <h2>{{ 'terms.sections.indemnification.title'|trans }}</h2>
+                <p>{{ 'terms.sections.indemnification.content1'|trans }}</p>
                 <ul>
-                    <li>Your use of the Service;</li>
-                    <li>Your violation of these Terms;</li>
-                    <li>Your violation of any law or third-party rights.</li>
+                    <li>{{ 'terms.sections.indemnification.list_item1'|trans }}</li>
+                    <li>{{ 'terms.sections.indemnification.list_item2'|trans }}</li>
+                    <li>{{ 'terms.sections.indemnification.list_item3'|trans }}</li>
                 </ul>
             </section>
 
             <section id="availability" class="terms-section">
-                <h2>11. Availability and Changes</h2>
-                <p>The Author may:</p>
+                <h2>{{ 'terms.sections.availability.title'|trans }}</h2>
+                <p>{{ 'terms.sections.availability.content1'|trans }}</p>
                 <ul>
-                    <li>Modify, update, suspend, restrict, or discontinue the Service at any time;</li>
-                    <li>Add, remove, or change features without notice;</li>
-                    <li>Correct errors or bugs without any obligation to do so.</li>
+                    <li>{{ 'terms.sections.availability.list_item1'|trans }}</li>
+                    <li>{{ 'terms.sections.availability.list_item2'|trans }}</li>
+                    <li>{{ 'terms.sections.availability.list_item3'|trans }}</li>
                 </ul>
             </section>
 
             <section id="advice" class="terms-section">
-                <h2>12. No Professional Advice</h2>
-                <p>The Service is provided for informational and convenience purposes only.</p>
-                <p>Generated content does not constitute legal, accounting, tax, business, employment, scheduling, project management, or other professional advice.</p>
+                <h2>{{ 'terms.sections.advice.title'|trans }}</h2>
+                <p>{{ 'terms.sections.advice.content1'|trans }}</p>
+                <p>{{ 'terms.sections.advice.content2'|trans }}</p>
             </section>
 
             <section id="governing" class="terms-section">
-                <h2>13. Governing Law</h2>
-                <p>These Terms shall be governed by and construed in accordance with the laws applicable in the jurisdiction where the Author resides or operates, without regard to conflict-of-law principles.</p>
+                <h2>{{ 'terms.sections.governing.title'|trans }}</h2>
+                <p>{{ 'terms.sections.governing.content1'|trans }}</p>
             </section>
 
             <section id="severability" class="terms-section">
-                <h2>14. Severability</h2>
-                <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.</p>
+                <h2>{{ 'terms.sections.severability.title'|trans }}</h2>
+                <p>{{ 'terms.sections.severability.content1'|trans }}</p>
             </section>
 
             <section id="agreement" class="terms-section">
-                <h2>15. Entire Agreement</h2>
-                <p>These Terms constitute the entire agreement between the user and the Author regarding the Service and supersede any prior agreements relating to the Service.</p>
+                <h2>{{ 'terms.sections.agreement.title'|trans }}</h2>
+                <p>{{ 'terms.sections.agreement.content1'|trans }}</p>
             </section>
 
             <section id="contact" class="terms-section">
-                <h2>16. Contact</h2>
-                <p>Questions regarding these Terms may be directed to the contact information provided by the Service operator.</p>
+                <h2>{{ 'terms.sections.contact.title'|trans }}</h2>
+                <p>{{ 'terms.sections.contact.content1'|trans }}</p>
             </section>
 
             <hr class="terms-divider">
 
             <section id="summary" class="terms-summary-card">
-                <h3>Plain-language summary (non-binding)</h3>
-                <p>This free calendar generator is provided without warranties. Users must verify generated calendars before relying on them. The Author is not responsible for losses, damages, inaccuracies, downtime, or consequences arising from use of the Service.</p>
+                <h3>{{ 'terms.sections.summary.title'|trans }}</h3>
+                <p>{{ 'terms.sections.summary.content'|trans }}</p>
             </section>
         </article>
     </div>

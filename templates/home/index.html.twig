@@ -1,28 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Calendar Generator - Welcome{% endblock %}
+{% block title %}{{ 'app.title'|trans }} - {{ 'home.welcome'|trans }}{% endblock %}
 
 {% block body %}
     <div class="hero">
         <div class="container">
-            <h1>Create Beautiful Calendars in Seconds.</h1>
-            <p class="subtitle">A modern, minimalistic tool to generate printable calendars effortlessly.</p>
+            <h1>{{ 'home.hero_heading'|trans }}</h1>
+            <p class="subtitle">{{ 'home.hero_subtitle'|trans }}</p>
             
             <div class="cta-container">
                 <form class="generator-form" action="{{ path('app_preview') }}" method="GET">
                     <div class="form-group">
-                        <label for="month">Month</label>
+                        <label for="month">{{ 'home.label_month'|trans }}</label>
                         <select id="month" name="month" class="form-control">
                             {% set selectedMonth = app.request.query.get('month', "now"|date("n")) %}
                             {% set months = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'} %}
                             {% for num, name in months %}
-                                <option value="{{ num }}" {% if num == selectedMonth %}selected{% endif %}>{{ name }}</option>
+                                <option value="{{ num }}" {% if num == selectedMonth %}selected{% endif %}>{{ ('months.' ~ name|lower)|trans }}</option>
                             {% endfor %}
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="year">Year</label>
+                        <label for="year">{{ 'home.label_year'|trans }}</label>
                         <select id="year" name="year" class="form-control">
                             {% set selectedYear = app.request.query.get('year', "now"|date("Y")) %}
                             {% set currentYear = "now"|date("Y") %}
@@ -33,28 +33,28 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="template">Template</label>
+                        <label for="template">{{ 'home.label_template'|trans }}</label>
                         <select id="template" name="template" class="form-control">
                             {% set selectedTemplate = app.request.query.get('template', 'modern') %}
-                            <option value="modern" {% if selectedTemplate == 'modern' %}selected{% endif %}>Modern</option>
-                            <option value="classic" {% if selectedTemplate == 'classic' %}selected{% endif %}>Classic</option>
+                            <option value="modern" {% if selectedTemplate == 'modern' %}selected{% endif %}>{{ 'home.template_modern'|trans }}</option>
+                            <option value="classic" {% if selectedTemplate == 'classic' %}selected{% endif %}>{{ 'home.template_classic'|trans }}</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label>First day of the week</label>
+                        <label>{{ 'home.label_first_day'|trans }}</label>
                         <div class="radio-group">
                             {% set selectedFirstDay = app.request.query.get('first_day', 'monday')|lower %}
                             <label>
-                                <input type="radio" name="first_day" value="monday" {% if selectedFirstDay == 'monday' %}checked{% endif %}> Monday
+                                <input type="radio" name="first_day" value="monday" {% if selectedFirstDay == 'monday' %}checked{% endif %}> {{ 'home.day_monday'|trans }}
                             </label>
                             <label>
-                                <input type="radio" name="first_day" value="sunday" {% if selectedFirstDay == 'sunday' %}checked{% endif %}> Sunday
+                                <input type="radio" name="first_day" value="sunday" {% if selectedFirstDay == 'sunday' %}checked{% endif %}> {{ 'home.day_sunday'|trans }}
                             </label>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Generate Preview</button>
+                    <button type="submit" class="btn btn-primary">{{ 'home.btn_generate_preview'|trans }}</button>
                 </form>
             </div>
         </div>

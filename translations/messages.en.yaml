@@ -1,0 +1,176 @@
+menu:
+  home: "Home"
+  about: "About"
+  terms_and_conditions: "Terms and Conditions"
+
+app:
+  title: "Calendar Generator"
+
+about:
+  page_title: "About"
+  heading: "About Calendar Generator"
+  description: "This application allows you to easily create and print personalized calendars. Our goal is to provide a clean, user-friendly interface that focuses on simplicity and efficiency."
+  coming_soon: "More details about features and development will be added here soon."
+
+download:
+  page_title: "Your Calendar is Ready"
+  heading: "Your calendar is ready"
+  subtext: "Your calendar for %date% has been generated successfully."
+  button: "Download"
+  create_another: "Create Another Calendar"
+
+home:
+  welcome: "Welcome"
+  hero_heading: "Create Beautiful Calendars in Seconds."
+  hero_subtitle: "A modern, minimalistic tool to generate printable calendars effortlessly."
+  label_month: "Month"
+  label_year: "Year"
+  label_template: "Template"
+  template_modern: "Modern"
+  template_classic: "Classic"
+  label_first_day: "First day of the week"
+  day_monday: "Monday"
+  day_sunday: "Sunday"
+  btn_generate_preview: "Generate Preview"
+
+preview:
+  page_title: "Calendar Preview"
+  terms_notice: "By clicking Generate, you agree to our %link_start%Terms and Conditions%link_end%."
+  btn_back: "Back"
+  btn_generate: "Generate"
+
+months:
+  january: "January"
+  february: "February"
+  march: "March"
+  april: "April"
+  may: "May"
+  june: "June"
+  july: "July"
+  august: "August"
+  september: "September"
+  october: "October"
+  november: "November"
+  december: "December"
+
+days:
+  mon: "Mon"
+  tue: "Tue"
+  wed: "Wed"
+  thu: "Thu"
+  fri: "Fri"
+  sat: "Sat"
+  sun: "Sun"
+
+terms:
+  page_title: "Terms and Conditions"
+  sidebar_title: "Table of Contents"
+  last_updated: "Last Updated: June 5, 2026"
+  toc:
+    acceptance: "1. Acceptance of Terms"
+    description: "2. Description of the Service"
+    warranty: "3. No Warranty"
+    liability: "4. Limitation of Liability"
+    responsibility: "5. User Responsibility"
+    property: "6. Intellectual Property"
+    use: "7. Acceptable Use"
+    third_party: "8. Third-Party Services"
+    privacy: "9. Privacy"
+    indemnification: "10. Indemnification"
+    availability: "11. Availability and Changes"
+    advice: "12. No Professional Advice"
+    governing: "13. Governing Law"
+    severability: "14. Severability"
+    agreement: "15. Entire Agreement"
+    contact: "16. Contact"
+    summary: "Summary"
+  sections:
+    acceptance:
+      title: "1. Acceptance of Terms"
+      content: "By accessing or using this online printable calendar generator (\"Service\"), you agree to be bound by these Terms and Conditions. If you do not agree to these Terms, do not use the Service."
+    description:
+      title: "2. Description of the Service"
+      content: "The Service provides tools for generating printable calendar documents and related content. The Service is provided free of charge and may be modified, suspended, or discontinued at any time without notice."
+    warranty:
+      title: "3. No Warranty"
+      disclaimer1: "THE SERVICE IS PROVIDED \"AS IS\", \"AS AVAILABLE\", AND WITH ALL FAULTS."
+      disclaimer2: "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE AUTHOR, OWNER, OPERATOR, AND CONTRIBUTORS DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:"
+      list1_item1: "MERCHANTABILITY;"
+      list1_item2: "FITNESS FOR A PARTICULAR PURPOSE;"
+      list1_item3: "NON-INFRINGEMENT;"
+      list1_item4: "ACCURACY, COMPLETENESS, OR RELIABILITY OF OUTPUT;"
+      list1_item5: "AVAILABILITY, SECURITY, OR ERROR-FREE OPERATION."
+      disclaimer3: "The Author does not warrant that:"
+      list2_item1: "The Service will meet your requirements;"
+      list2_item2: "The Service will be uninterrupted or error-free;"
+      list2_item3: "Generated calendars will be accurate, complete, or suitable for any purpose;"
+      list2_item4: "Any defects will be corrected."
+      content: "Users are solely responsible for verifying all generated content before use, publication, printing, distribution, or reliance upon it."
+    liability:
+      title: "4. Limitation of Liability"
+      disclaimer1: "TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE AUTHOR, OWNER, OPERATOR, CONTRIBUTORS, AFFILIATES, AND LICENSORS SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATED TO:"
+      list_item1: "Use of or inability to use the Service;"
+      list_item2: "Errors, omissions, inaccuracies, or defects in generated calendars;"
+      list_item3: "Loss of data;"
+      list_item4: "Business interruption;"
+      list_item5: "Loss of profits, revenue, goodwill, or opportunities;"
+      list_item6: "Decisions made based on generated content."
+      content: "This limitation applies regardless of the legal theory asserted and even if the Author has been advised of the possibility of such damages."
+    responsibility:
+      title: "5. User Responsibility"
+      content1: "You are solely responsible for:"
+      list_item1: "Reviewing and validating generated calendars and content;"
+      list_item2: "Ensuring compliance with applicable laws and regulations;"
+      list_item3: "Maintaining backup copies of any data you consider important;"
+      list_item4: "Any use, distribution, publication, or printing of generated output."
+    property:
+      title: "6. Intellectual Property"
+      content1: "Unless otherwise stated, all rights, title, and interest in the Service, including its software, design, text, graphics, and functionality, remain the property of the Author."
+      content2: "Generated calendar output may be used, printed, copied, and distributed by users for personal or commercial purposes unless otherwise indicated by the Service."
+      content3: "Nothing in these Terms transfers ownership of the Service itself."
+    use:
+      title: "7. Acceptable Use"
+      content1: "You agree not to:"
+      list_item1: "Use the Service for unlawful purposes;"
+      list_item2: "Attempt to interfere with or disrupt the Service;"
+      list_item3: "Reverse engineer, decompile, or attempt to extract source code where prohibited by law;"
+      list_item4: "Use automated means to abuse, overload, or damage the Service."
+    third_party:
+      title: "8. Third-Party Services"
+      content1: "The Service may rely on third-party providers, hosting services, APIs, libraries, or software components."
+      content2: "The Author is not responsible for the availability, performance, content, security, or policies of third-party services."
+    privacy:
+      title: "9. Privacy"
+      content1: "The Author may collect and process information as described in a separate Privacy Policy, if applicable."
+      content2: "Users should not submit confidential, sensitive, or legally protected information through the Service unless explicitly requested and protected by appropriate safeguards."
+    indemnification:
+      title: "10. Indemnification"
+      content1: "You agree to indemnify and hold harmless the Author, owner, operator, contributors, affiliates, and licensors from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising from:"
+      list_item1: "Your use of the Service;"
+      list_item2: "Your violation of these Terms;"
+      list_item3: "Your violation of any law or third-party rights."
+    availability:
+      title: "11. Availability and Changes"
+      content1: "The Author may:"
+      list_item1: "Modify, update, suspend, restrict, or discontinue the Service at any time;"
+      list_item2: "Add, remove, or change features without notice;"
+      list_item3: "Correct errors or bugs without any obligation to do so."
+    advice:
+      title: "12. No Professional Advice"
+      content1: "The Service is provided for informational and convenience purposes only."
+      content2: "Generated content does not constitute legal, accounting, tax, business, employment, scheduling, project management, or other professional advice."
+    governing:
+      title: "13. Governing Law"
+      content1: "These Terms shall be governed by and construed in accordance with the laws applicable in the jurisdiction where the Author resides or operates, without regard to conflict-of-law principles."
+    severability:
+      title: "14. Severability"
+      content1: "If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall remain in full force and effect."
+    agreement:
+      title: "15. Entire Agreement"
+      content1: "These Terms constitute the entire agreement between the user and the Author regarding the Service and supersede any prior agreements relating to the Service."
+    contact:
+      title: "16. Contact"
+      content1: "Questions regarding these Terms may be directed to the contact information provided by the Service operator."
+    summary:
+      title: "Plain-language summary (non-binding)"
+      content: "This free calendar generator is provided without warranties. Users must verify generated calendars before relying on them. The Author is not responsible for losses, damages, inaccuracies, downtime, or consequences arising from use of the Service."

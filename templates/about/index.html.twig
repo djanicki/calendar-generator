@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}About - Calendar Generator{% endblock %}
+{% block title %}{{ 'about.page_title'|trans }} - {{ 'app.title'|trans }}{% endblock %}
 
 {% block body %}
     <div class="container page-content">
-        <h1>About Calendar Generator</h1>
-        <p>This application allows you to easily create and print personalized calendars. Our goal is to provide a clean, user-friendly interface that focuses on simplicity and efficiency.</p>
-        <p>More details about features and development will be added here soon.</p>
+        <h1>{{ 'about.heading'|trans }}</h1>
+        <p>{{ 'about.description'|trans }}</p>
+        <p>{{ 'about.coming_soon'|trans }}</p>
     </div>
 {% endblock %}
