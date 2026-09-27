@@ -1,0 +1,176 @@
+menu:
+  home: "Strona główna"
+  about: "O projekcie"
+  terms_and_conditions: "Regulamin"
+
+app:
+  title: "Generator Kalendarza"
+
+about:
+  page_title: "O projekcie"
+  heading: "O Generatorze Kalendarza"
+  description: "Ta aplikacja umożliwia łatwe tworzenie i drukowanie spersonalizowanych kalendarzy. Naszym celem jest zapewnienie przejrzystego, przyjaznego dla użytkownika interfejsu, który stawia na prostotę i efektywność."
+  coming_soon: "Więcej szczegółów dotyczących funkcji i rozwoju pojawi się tutaj wkrótce."
+
+download:
+  page_title: "Twój kalendarz jest gotowy"
+  heading: "Twój kalendarz jest gotowy"
+  subtext: "Twój kalendarz na %date% został pomyślnie wygenerowany."
+  button: "Pobierz"
+  create_another: "Utwórz kolejny kalendarz"
+
+home:
+  welcome: "Witaj"
+  hero_heading: "Twórz piękne kalendarze w kilka sekund."
+  hero_subtitle: "Nowoczesne, minimalistyczne narzędzie do bezproblemowego generowania kalendarzy do druku."
+  label_month: "Miesiąc"
+  label_year: "Rok"
+  label_template: "Szablon"
+  template_modern: "Nowoczesny"
+  template_classic: "Klasyczny"
+  label_first_day: "Pierwszy dzień tygodnia"
+  day_monday: "Poniedziałek"
+  day_sunday: "Niedziela"
+  btn_generate_preview: "Wygeneruj podgląd"
+
+preview:
+  page_title: "Podgląd kalendarza"
+  terms_notice: "Klikając Generuj, akceptujesz nasz %link_start%Regulamin%link_end%."
+  btn_back: "Wstecz"
+  btn_generate: "Generuj"
+
+months:
+  january: "Styczeń"
+  february: "Luty"
+  march: "Marzec"
+  april: "Kwiecień"
+  may: "Maj"
+  june: "Czerwiec"
+  july: "Lipiec"
+  august: "Sierpień"
+  september: "Wrzesień"
+  october: "Październik"
+  november: "Listopad"
+  december: "Grudzień"
+
+days:
+  mon: "Pn"
+  tue: "Wt"
+  wed: "Śr"
+  thu: "Cz"
+  fri: "Pt"
+  sat: "Sb"
+  sun: "Nd"
+
+terms:
+  page_title: "Regulamin i Warunki Korzystania"
+  sidebar_title: "Spis treści"
+  last_updated: "Ostatnia aktualizacja: 5 czerwca 2026"
+  toc:
+    acceptance: "1. Akceptacja Regulaminu"
+    description: "2. Opis Usługi"
+    warranty: "3. Brak Gwarancji"
+    liability: "4. Ograniczenie Odpowiedzialności"
+    responsibility: "5. Odpowiedzialność Użytkownika"
+    property: "6. Własność Intelektualna"
+    use: "7. Dozwolony Użytek"
+    third_party: "8. Usługi Osób Trzecich"
+    privacy: "9. Prywatność"
+    indemnification: "10. Zwolnienie z Odpowiedzialności"
+    availability: "11. Dostępność i Zmiany"
+    advice: "12. Brak Porad Profesjonalnych"
+    governing: "13. Prawo Właściwe"
+    severability: "14. Klauzula Salwatoryjna"
+    agreement: "15. Całość Porozumienia"
+    contact: "16. Kontakt"
+    summary: "Podsumowanie"
+  sections:
+    acceptance:
+      title: "1. Akceptacja Regulaminu"
+      content: "Uzyskując dostęp do tego internetowego generatora kalendarzy do druku (\"Usługa\") lub korzystając z niego, wyrażasz zgodę na przestrzeganie niniejszego Regulaminu. Jeśli nie zgadzasz się z tymi warunkami, nie korzystaj z Usługi."
+    description:
+      title: "2. Opis Usługi"
+      content: "Usługa udostępnia narzędzia do generowania dokumentów kalendarzy do druku i powiązanych treści. Usługa jest świadczona bezpłatnie i może zostać zmieniona, zawieszona lub zakończona w dowolnym momencie bez uprzedzenia."
+    warranty:
+      title: "3. Brak Gwarancji"
+      disclaimer1: "USŁUGA JEST ŚWIADCZONA W STANIE, W JAKIM SIĘ ZNAJDUJE (\"AS IS\"), \"W MIARĘ DOSTĘPNOŚCI\" I ZE WSZYSTKIMI WADAMI."
+      disclaimer2: "W MAKSYMALNYM ZAKRESIE DOZWOLONYM PRZEZ OBOWIĄZUJĄCE PRAWO, AUTOR, WŁAŚCICIEL, OPERATOR I WSPÓŁTWÓRCY ZRZEKAJĄ SIĘ WSZELKICH GWARANCJI, WYRAŹNYCH LUB DOROZUMIANYCH, W TYM MIĘDZY INNYMI:"
+      list1_item1: "PRZYDATNOŚCI HANDLOWEJ;"
+      list1_item2: "PRZYDATNOŚCI DO OKREŚLONEGO CELU;"
+      list1_item3: "NIENARUSZANIA PRAW OSÓB TRZECICH;"
+      list1_item4: "DOKŁADNOŚCI, KOMPLETNOŚCI LUB NIEZAWODNOŚCI WYNIKÓW;"
+      list1_item5: "DOSTĘPNOŚCI, BEZPIECZEŃSTWA LUB BEZBŁĘDNEGO DZIAŁANIA."
+      disclaimer3: "Autor nie gwarantuje, że:"
+      list2_item1: "Usługa spełni Twoje wymagania;"
+      list2_item2: "Usługa będzie działać nieprzerwanie lub bezbłędnie;"
+      list2_item3: "Wygenerowane kalendarze będą dokładne, kompletne lub odpowiednie do jakiegokolwiek celu;"
+      list2_item4: "Wszelkie wady zostaną naprawione."
+      content: "Użytkownicy ponoszą wyłączną odpowiedzialność za weryfikację wszelkich wygenerowanych treści przed ich użyciem, publikacją, drukiem, dystrybucją lub poleganiem na nich."
+    liability:
+      title: "4. Ograniczenie Odpowiedzialności"
+      disclaimer1: "W MAKSYMALNYM ZAKRESIE DOZWOLONYM PRZEZ PRAWO, AUTOR, WŁAŚCICIEL, OPERATOR, WSPÓŁTWÓRCY, PODMIOTY POWIĄZANE I LICENCJODAWCY NIE PONOSZĄ ODPOWIEDZIALNOŚCI ZA JAKIEKOLWIEK SZKODY BEZPOŚREDNIE, POŚREDNIE, PRZYPADKOWE, SPECJALNE, WTÓRNE LUB MORALNE WYNIKAJĄCE Z LUB ZWIĄZANE Z:"
+      list_item1: "Korzystaniem lub brakiem możliwości korzystania z Usługi;"
+      list_item2: "Błędami, pominięciami, nieścisłościami lub wadami w wygenerowanych kalendarzach;"
+      list_item3: "Utratą danych;"
+      list_item4: "Przerwami w działalności gospodarczej;"
+      list_item5: "Utratą zysków, przychodów, renomy lub możliwości biznesowych;"
+      list_item6: "Decyzjami podjętymi na podstawie wygenerowanych treści."
+      content: "Ograniczenie to ma zastosowanie bez względu na podstawę prawną roszczenia i nawet wtedy, gdy Autor został poinformowany o możliwości wystąpienia takich szkód."
+    responsibility:
+      title: "5. Odpowiedzialność Użytkownika"
+      content1: "Ponosisz wyłączną odpowiedzialność za:"
+      list_item1: "Przeglądanie i weryfikację wygenerowanych kalendarzy i treści;"
+      list_item2: "Zapewnienie zgodności z obowiązującymi przepisami prawa i regulacjami;"
+      list_item3: "Utrzymywanie kopii zapasowych wszelkich danych uznanych za istotne;"
+      list_item4: "Wszelkie wykorzystanie, dystrybucję, publikację lub druk wygenerowanych materiałów."
+    property:
+      title: "6. Własność Intelektualna"
+      content1: "O ile nie zaznaczono inaczej, wszelkie prawa, tytuły i udziały w Usłudze, w tym jej oprogramowanie, projekt, tekst, grafika i funkcjonalności, pozostają własnością Autora."
+      content2: "Wygenerowane pliki kalendarzy mogą być używane, drukowane, kopiowane i rozpowszechniane przez użytkowników w celach osobistych lub komercyjnych, chyba że Usługa stanowi inaczej."
+      content3: "Żadne z postanowień niniejszego Regulaminu nie przenosi prawa własności do samej Usługi."
+    use:
+      title: "7. Dozwolony Użytek"
+      content1: "Zgadzasz się nie:"
+      list_item1: "Wykorzystywać Usługi do celów niezgodnych z prawem;"
+      list_item2: "Podejmować prób zakłócania lub przerywania działania Usługi;"
+      list_item3: "Stosować inżynierii wstecznej, dekompilować ani próbować wydobyć kodu źródłowego tam, gdzie jest to zabronione przez prawo;"
+      list_item4: "Używać zautomatyzowanych narzędzi do nadużywania, przeciążania lub uszkadzania Usługi."
+    third_party:
+      title: "8. Usługi Osób Trzecich"
+      content1: "Usługa może opierać się na dostawcach zewnętrznych, usługach hostingowych, interfejsach API, bibliotekach lub komponentach oprogramowania."
+      content2: "Autor nie ponosi odpowiedzialności za dostępność, wydajność, zawartość, bezpieczeństwo ani polityki usług podmiotów trzecich."
+    privacy:
+      title: "9. Prywatność"
+      content1: "Autor może gromadzić i przetwarzać informacje zgodnie z osobną Polityką Prywatności, jeśli ma zastosowanie."
+      content2: "Użytkownicy nie powinni przesyłać za pośrednictwem Usługi informacji poufnych, wrażliwych ani chronionych prawem, chyba że zostaną o to wyraźnie poproszeni i zapewnione zostaną odpowiednie środki ochrony."
+    indemnification:
+      title: "10. Zwolnienie z Odpowiedzialności"
+      content1: "Zgadzasz się zabezpieczyć i chronić Autora, właściciela, operatora, współtwórców, podmioty powiązane i licencjodawców przed wszelkimi roszczeniami, zobowiązaniami, odszkodowaniami, stratami, kosztami i wydatkami (w tym uzasadnionymi kosztami obsługi prawnej) wynikającymi z:"
+      list_item1: "Twojego korzystania z Usługi;"
+      list_item2: "Naruszenia przez Ciebie niniejszego Regulaminu;"
+      list_item3: "Naruszenia przez Ciebie prawa lub praw osób trzecich."
+    availability:
+      title: "11. Dostępność i Zmiany"
+      content1: "Autor może:"
+      list_item1: "Modyfikować, aktualizować, zawieszać, ograniczać lub kończyć świadczenie Usługi w dowolnym momencie;"
+      list_item2: "Dodawać, usuwać lub modyfikować funkcje bez powiadomienia;"
+      list_item3: "Naprawiać błędy bez żadnego zobowiązania do takich działań."
+    advice:
+      title: "12. Brak Porad Profesjonalnych"
+      content1: "Usługa jest świadczona wyłącznie w celach informacyjnych i dla wygody."
+      content2: "Wygenerowane treści nie stanowią porad prawnych, księgowych, podatkowych, biznesowych, pracowniczych, harmonogramowych, zarządzania projektami ani żadnych innych porad specjalistycznych."
+    governing:
+      title: "13. Prawo Właściwe"
+      content1: "Niniejszy Regulamin podlega przepisom prawa właściwym dla jurysdykcji, w której Autor ma miejsce zamieszkania lub prowadzi działalność, i zgodnie z nimi będzie interpretowany, bez względu na normy kolizyjne."
+    severability:
+      title: "14. Klauzula Salwatoryjna"
+      content1: "Jeśli którekolwiek postanowienie niniejszego Regulaminu zostanie uznane za nieważne lub niewykonalne, pozostałe postanowienia pozostają w pełnej mocy."
+    agreement:
+      title: "15. Całość Porozumienia"
+      content1: "Niniejszy Regulamin stanowi całość porozumienia pomiędzy użytkownikiem a Autorem w zakresie Usługi i zastępuje wszelkie wcześniejsze porozumienia dotyczące Usługi."
+    contact:
+      title: "16. Kontakt"
+      content1: "Pytania dotyczące niniejszego Regulaminu można kierować za pomocą danych kontaktowych udostępnionych przez operatora Usługi."
+    summary:
+      title: "Przystępne podsumowanie (niewiążące prawnie)"
+      content: "Ten darmowy generator kalendarzy jest udostępniany bez gwarancji. Użytkownicy muszą zweryfikować wygenerowane kalendarze przed poleganiem na nich. Autor nie ponosi odpowiedzialności za straty, szkody, nieścisłości, przerwy w działaniu ani konsekwencje wynikające z korzystania z Usługi."
