@@ -30,17 +30,32 @@
                     <span class="logo-icon">📅</span> {{ 'app.title'|trans }}
                 </a>
                 
-                <button class="mobile-menu-btn" aria-label="Toggle Navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                
-                <ul class="nav-links">
-                    <li><a href="{{ path('app_home') }}" class="{{ app.current_route == 'app_home' ? 'active' : '' }}">{{ 'menu.home'|trans }}</a></li>
-                    <li><a href="{{ path('app_about') }}" class="{{ app.current_route == 'app_about' ? 'active' : '' }}">{{ 'menu.about'|trans }}</a></li>
-                    <li><a href="{{ path('app_terms') }}" class="{{ app.current_route == 'app_terms' ? 'active' : '' }}">{{ 'menu.terms_and_conditions'|trans }}</a></li>
-                </ul>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="{{ path('app_home') }}" class="{{ app.current_route == 'app_home' ? 'active' : '' }}">{{ 'menu.home'|trans }}</a></li>
+                        <li><a href="{{ path('app_about') }}" class="{{ app.current_route == 'app_about' ? 'active' : '' }}">{{ 'menu.about'|trans }}</a></li>
+                        <li><a href="{{ path('app_terms') }}" class="{{ app.current_route == 'app_terms' ? 'active' : '' }}">{{ 'menu.terms_and_conditions'|trans }}</a></li>
+                    </ul>
+
+                    <div class="lang-selector" aria-label="Language selector">
+                        {% set currentLocale = app.request.locale|lower %}
+                        <a href="{{ path('app_change_locale', {locale: 'en'}) }}" class="lang-option {% if currentLocale starts with 'en' %}active{% endif %}" title="English">
+                            <span class="flag-icon" role="img" aria-label="English">🇬🇧</span>
+                            <span class="lang-code">EN</span>
+                        </a>
+                        <span class="lang-divider">|</span>
+                        <a href="{{ path('app_change_locale', {locale: 'pl'}) }}" class="lang-option {% if currentLocale starts with 'pl' %}active{% endif %}" title="Polski">
+                            <span class="flag-icon" role="img" aria-label="Polski">🇵🇱</span>
+                            <span class="lang-code">PL</span>
+                        </a>
+                    </div>
+
+                    <button class="mobile-menu-btn" aria-label="Toggle Navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </nav>
 
